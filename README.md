@@ -3,5 +3,7 @@
 ```bash
 npm i
 
-npx dev
+npx run dev
+
+json-server --watch src/data/data.json --port 5000
 ```
