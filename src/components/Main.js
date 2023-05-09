@@ -9,9 +9,11 @@ class Main {
       $main,
       tags,
       onSearch: tagName => {
+        this.loadingShimmer.show();
         api.fetchJisuns().then(res => {
           this.data = res.filter(i => i.tag.includes(tagName));
           this.setState(this.data);
+          this.loadingShimmer.hide();
         });
       },
       onClickFav: () => {
@@ -19,6 +21,8 @@ class Main {
         this.setState(this.data);
       },
     });
+
+    this.loadingShimmer = new LoadingShimmer({ $main });
 
     this.searchResult = new SearchResult({
       $main,
