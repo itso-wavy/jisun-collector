@@ -1,11 +1,11 @@
 class ImageInfo {
   data = null;
 
-  constructor({ $target, data }) {
+  constructor({ $main, data }) {
     const $imageInfo = document.createElement('div');
-    $imageInfo.className = 'imageInfo';
+    $imageInfo.className = 'image-info';
     this.$imageInfo = $imageInfo;
-    $target.append($imageInfo);
+    $main.append($imageInfo);
 
     this.data = data;
     this.render();

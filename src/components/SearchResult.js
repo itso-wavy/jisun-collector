@@ -1,12 +1,19 @@
-class ResultList {
+class SearchResult {
   data = [];
   onClick = null;
 
-  constructor({ $target, initialData, onClick }) {
+  constructor({ $main, initialData, onClick }) {
+    const $searchResult = document.createElement('section');
+    const $readerTitle = document.createElement('h2');
     const $resultList = document.createElement('ul');
-    $resultList.className = 'resultList';
+    $readerTitle.textContent = 'List of image you chose';
+    $readerTitle.className = 'sr-only';
+    $searchResult.className = 'search-result';
+
     this.$resultList = $resultList;
-    $target.append(this.$resultList);
+    $searchResult.append($readerTitle);
+    $searchResult.append(this.$resultList);
+    $main.append($searchResult);
 
     this.data = initialData;
     this.onClick = onClick;
