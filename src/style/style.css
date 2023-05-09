@@ -49,14 +49,18 @@ body[theme=color] {
   --font-color: #2c2c2a;
   --sub-color: #cbc9ca;
   --sub-color2: #f36dab;
-  --point-color: #a8e00dab;
+  --point-color: #6be189ea;
 }
 
 body {
   color: var(--font-color);
-  background-color: var(--background-color);
+  background: var(--background-color);
   font-size: 1rem;
   font-family: "Roboto Mono", system-ui;
+}
+body[theme=color] {
+  background: linear-gradient(180deg, var(--background-color) 20%, var(--sub-color) 70%, rgba(221, 255, 208, 0.3960784314) 78%, var(--sub-color2) 130%);
+  background: linear-gradient(180deg, var(--background-color) 20%, var(--sub-color) 70%, rgba(175, 58, 40, 0.3843137255) 80%, var(--sub-color2) 130%);
 }
 
 .sr-only {
@@ -71,6 +75,7 @@ body {
 #App {
   min-width: 360px;
   max-width: 1900px;
+  min-height: 100vh;
 }
 
 /* === HEADER === */
