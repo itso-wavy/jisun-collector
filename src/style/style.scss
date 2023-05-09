@@ -53,7 +53,7 @@ body {
     --font-color: #2c2c2a;
     --sub-color: #cbc9ca;
     --sub-color2: #f36dab;
-    --point-color: #6be189ea;
+    --point-color: #f1c751ea;
   }
 }
 
@@ -352,20 +352,21 @@ body {
       strong {
         position: absolute;
         right: 0;
-        padding: 1em .5em;
-        margin: 1em;
+        // padding: ;
+        margin: 2em 1em;
         border: 5px dashed transparent;
         border-radius: 8px;
         cursor: pointer;
 
-        &:hover {
-          border: 5px dashed var(--point-color);
-        }
-
         .heart {
           color: #f36dab;
           font-size: 1.3em;
+          padding: .2em .5em;
           vertical-align: bottom;
+
+          &:hover {
+            color: var(--point-color);
+          }
         }
       }
     }

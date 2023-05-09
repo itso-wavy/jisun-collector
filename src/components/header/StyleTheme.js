@@ -5,7 +5,6 @@ class StyleTheme {
     const $styleTheme = document.createElement('aside');
     const $themeList = document.createElement('ul');
     const $label = document.createElement('button');
-    $label.disabled = true;
     $label.textContent = 'choose your theme: ';
     $label.className = 'themes-label';
     $styleTheme.className = 'style-theme';
@@ -14,7 +13,7 @@ class StyleTheme {
     this.$label = $label;
     this.$themeList = $themeList;
     this.$styleTheme = $styleTheme;
-    $styleTheme.append($label);
+    $styleTheme.append(this.$label);
 
     for (let themeName of themes) {
       const $themeItem = document.createElement('li');
@@ -28,23 +27,25 @@ class StyleTheme {
       });
 
       $themeItem.append($themeBtn);
-      $themeList.append($themeItem);
+      this.$themeList.append($themeItem);
     }
 
-    $styleTheme.append($themeList);
+    $styleTheme.append(this.$themeList);
     $header.append($styleTheme);
+
+    this.render();
 
     window.addEventListener('resize', () => {
       matchMedia('(width < 600px)').matches
-        ? ($themeList.classList.add('hide'), ($label.disabled = false))
-        : ($themeList.classList.remove('hide'), ($label.disabled = true));
+        ? (this.$themeList.classList.add('hide'),
+          (this.$label.disabled = false))
+        : (this.$themeList.classList.remove('hide'),
+          (this.$label.disabled = true));
     });
 
-    $label.addEventListener('click', () => {
+    this.$label.addEventListener('click', () => {
       this.$themeList.classList.toggle('hide');
     });
-
-    this.render();
   }
 
   setState(themeName) {
@@ -61,6 +62,7 @@ class StyleTheme {
       ? 'light'
       : 'dark';
 
-    document.body.setAttribute('theme', this.theme);
+    matchMedia('(width < 600px)').matches &&
+      this.$themeList.classList.add('hide');
   }
 }

@@ -10,6 +10,6 @@ class Footer {
   }
 
   render() {
-    this.$footer.innerHTML = `so cute jisun<img class="icon" src="./favicon.png" alt="icon"><br> made by <a href="https://github.com/itso-wavy">wavy</a>`;
+    this.$footer.innerHTML = `so cute Prof.jisun<img class="icon" src="./favicon.png" alt="icon"><br> made by <a href="https://github.com/itso-wavy">wavy</a>`;
   }
 }
