@@ -80,7 +80,7 @@ body {
 
 /* ===== APP ===== */
 #App {
-  min-width: 360px;
+  min-width: 370px;
   max-width: 1900px;
   min-height: 100vh;
 }
@@ -210,7 +210,7 @@ body {
     }
   }
 
-  .fav-btn {
+  .favorites {
     background-color: var(--sub-color2);
   }
 
@@ -225,7 +225,7 @@ body {
       align-items: center;
     }
 
-    & .fav-btn {
+    & .favorites {
       height: fit-content;
       align-self: center;
     }
@@ -233,18 +233,18 @@ body {
 }
 
 .loading-shimmer {
-  padding: 0.6em 3em;
+  padding: 0.6em min(3em, 3%);
 
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: .7em;
     align-items: center;
 
     .loading-item {
       height: max(350px, 50vh);
       padding: .8em;
-      // box-shadow: 0px 0px 5px 0 #b9b9b986;
+      box-shadow: 0px 0px 5px 0 #b9b9b986;
 
       .frame {
         width: 100%;
@@ -269,11 +269,11 @@ body {
 }
 
 .search-result {
-  padding: 0.6em 3em;
+  padding: 0.6em min(3em, 3%);
 
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: .7em;
     align-items: center;
 
@@ -335,6 +335,8 @@ body {
       position: absolute;
       top: 8px;
       right: 8px;
+      border: 5px dashed transparent;
+      transition: all 0.1s;
 
       &:hover {
         border: 5px dashed var(--point-color);
@@ -363,6 +365,7 @@ body {
           font-size: 1.3em;
           padding: .2em .5em;
           vertical-align: bottom;
+          transition: all 0.1s;
 
           &:hover {
             color: var(--point-color);

@@ -1,15 +1,15 @@
 class SearchInput {
-  constructor({ $main, tags, onSearch, onClickFav }) {
+  constructor({ $main, tags, onSearch }) {
     const $searchInput = document.createElement('section');
     $searchInput.className = 'search-input';
     this.$searchInput = $searchInput;
 
     $main.append(this.$searchInput);
 
-    this.render(tags, onSearch, onClickFav);
+    this.render(tags, onSearch);
   }
 
-  render(tags, onSearch, onClickFav) {
+  render(tags, onSearch) {
     const $readerTitle = document.createElement('h2');
     const $tagList = document.createElement('ul');
     $readerTitle.textContent = 'choose image tag you want';
@@ -29,13 +29,7 @@ class SearchInput {
       $tagList.append($li);
     }
 
-    const $favBtn = document.createElement('button');
-    $favBtn.className = 'fav-btn';
-    $favBtn.textContent = 'favorite';
-    $favBtn.addEventListener('click', onClickFav);
-
     this.$searchInput.append($readerTitle);
     this.$searchInput.append($tagList);
-    this.$searchInput.append($favBtn);
   }
 }

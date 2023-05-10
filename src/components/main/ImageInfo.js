@@ -1,13 +1,15 @@
 class ImageInfo {
   data = null;
+  onClickHeart = null;
 
-  constructor({ $main, data }) {
+  constructor({ $main, data, onClickHeart }) {
     const $imageInfo = document.createElement('div');
     $imageInfo.className = 'image-info';
     this.$imageInfo = $imageInfo;
     $main.append($imageInfo);
 
     this.data = data;
+    this.onClickHeart = onClickHeart;
     this.render();
   }
 
@@ -23,7 +25,7 @@ class ImageInfo {
 
   render() {
     if (this.data.visible) {
-      const { likes, source, tag, url } = this.data.image;
+      const { likes, source, tag, url } = this.data.item;
 
       this.$imageInfo.innerHTML = `
       <div class="info-wrapper">
@@ -31,7 +33,7 @@ class ImageInfo {
         <img class="info-img" src=${url} alt='${tag} jisun'>
         <div class="text-box">
           <p>출처: ${source}</p>
-          <strong onclick=""><span class="heart">❤︎</span>${likes}</strong>
+          <strong id="like"><span class="heart">❤︎</span>${likes}</strong>
         </div>
       </div>
       `;
@@ -50,6 +52,15 @@ class ImageInfo {
       document.addEventListener(
         'keydown',
         e => e.key === 'Escape' && this.closeImageInfo()
+      );
+
+      document.querySelector('#like').addEventListener(
+        'click',
+        e => console.dir(e.target, e.srcElement)
+        // this.onClickHeart(e.target.parentElement)
+
+        // srcElement
+        // target
       );
     } else {
       this.$imageInfo.style.visibility = 'hidden';

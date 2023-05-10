@@ -16,9 +16,17 @@ class Main {
           this.loadingShimmer.hide();
         });
       },
+    });
+
+    this.favorites = new Favorites({
+      $target: this.searchInput,
       onClickFav: () => {
-        this.data = JSON.parse(localStorage.getItem('favorite'));
-        this.setState(this.data);
+        this.loadingShimmer.show();
+        api.fetchFavorites().then(res => {
+          this.data = res;
+          this.setState(this.data);
+          this.loadingShimmer.hide();
+        });
       },
     });
 
@@ -27,20 +35,22 @@ class Main {
     this.searchResult = new SearchResult({
       $main,
       initialData: this.data,
-      onClick: image => {
+      onClickItem: item => {
         this.imageInfo.setState({
-          image,
+          item,
           visible: true,
         });
       },
     });
 
-    // 아이템 fav 클릭시 로컬스토리지 저장
     this.imageInfo = new ImageInfo({
       $main,
       data: {
         image: null,
         visible: false,
+      },
+      onClickHeart: item => {
+        this.favorites.setState(item);
       },
     });
 

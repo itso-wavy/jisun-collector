@@ -1,8 +1,8 @@
 class SearchResult {
   data = [];
-  onClick = null;
+  onClickItem = null;
 
-  constructor({ $main, initialData, onClick }) {
+  constructor({ $main, initialData, onClickItem }) {
     const $searchResult = document.createElement('section');
     const $readerTitle = document.createElement('h2');
     const $resultList = document.createElement('ul');
@@ -16,8 +16,7 @@ class SearchResult {
     $main.append($searchResult);
 
     this.data = initialData;
-    this.onClick = onClick;
-
+    this.onClickItem = onClickItem;
     this.render();
   }
 
@@ -37,7 +36,7 @@ class SearchResult {
 
     this.$resultList.querySelectorAll('.result-item').forEach((item, index) =>
       item.addEventListener('click', () => {
-        this.onClick(this.data[index]);
+        this.onClickItem(this.data[index]);
       })
     );
   }

@@ -19,7 +19,7 @@
       "url": "https://news.nateimg.co.kr/orgImg/ts/2020/04/29/772634_499031_110_org.jpg",
       "source": "nate",
       "tag": ["cute", "pretty"],
-      "likes": 4
+      "likes": 9
     },
     {
       "id": "6645965",
@@ -280,5 +280,6 @@
       "tag": ["cute"],
       "likes": 0
     }
-  ]
+  ],
+  "favorites": []
 }

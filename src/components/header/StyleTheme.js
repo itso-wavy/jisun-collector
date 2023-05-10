@@ -10,11 +10,6 @@ class StyleTheme {
     $styleTheme.className = 'style-theme';
     $themeList.className = 'theme-list';
 
-    this.$label = $label;
-    this.$themeList = $themeList;
-    this.$styleTheme = $styleTheme;
-    $styleTheme.append(this.$label);
-
     for (let themeName of themes) {
       const $themeItem = document.createElement('li');
       const $themeBtn = document.createElement('button');
@@ -27,9 +22,13 @@ class StyleTheme {
       });
 
       $themeItem.append($themeBtn);
-      this.$themeList.append($themeItem);
+      $themeList.append($themeItem);
     }
 
+    this.$label = $label;
+    this.$themeList = $themeList;
+    this.$styleTheme = $styleTheme;
+    $styleTheme.append(this.$label);
     $styleTheme.append(this.$themeList);
     $header.append($styleTheme);
 
@@ -56,11 +55,14 @@ class StyleTheme {
 
   render() {
     const themeSetting = localStorage.getItem('theme');
+
     this.theme = themeSetting
       ? themeSetting
       : window.matchMedia('(prefers-color-scheme)').matches
       ? 'light'
       : 'dark';
+
+    this.setState(this.theme);
 
     matchMedia('(width < 600px)').matches &&
       this.$themeList.classList.add('hide');
