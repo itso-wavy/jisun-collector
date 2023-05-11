@@ -10,9 +10,4 @@ class Favorites {
 
     $target.$searchInput.append($favorites);
   }
-
-  setState(nextData) {
-    this.data.push(nextData);
-    localStorage.setItem('favorites', JSON.stringify(this.data));
-  }
 }

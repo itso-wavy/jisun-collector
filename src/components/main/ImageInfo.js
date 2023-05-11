@@ -25,7 +25,7 @@ class ImageInfo {
 
   render() {
     if (this.data.visible) {
-      const { likes, source, tag, url } = this.data.item;
+      const { likes, source, tag, url, isFavorite } = this.data.item;
 
       this.$imageInfo.innerHTML = `
       <div class="info-wrapper">
@@ -33,20 +33,20 @@ class ImageInfo {
         <img class="info-img" src=${url} alt='${tag} jisun'>
         <div class="text-box">
           <p>출처: ${source}</p>
-          <strong id="like"><span class="heart">❤︎</span>${likes}</strong>
+          <button id="like"><span class="heart ${isFavorite ? 'fav' : ''}"
+          >❤︎</span>${isFavorite ? likes + 1 : likes}</button>
         </div>
       </div>
       `;
 
       this.$imageInfo.style.visibility = 'visible';
 
-      document
-        .querySelector('#close')
-        .addEventListener('click', () => this.closeImageInfo());
-
+      /** 모달 닫기 이벤트 */
       this.$imageInfo.addEventListener(
         'click',
-        e => e.target.className === 'image-info' && this.closeImageInfo()
+        e =>
+          (e.target.className === 'image-info' || e.target.id === 'close') &&
+          this.closeImageInfo()
       );
 
       document.addEventListener(
@@ -54,14 +54,12 @@ class ImageInfo {
         e => e.key === 'Escape' && this.closeImageInfo()
       );
 
-      document.querySelector('#like').addEventListener(
-        'click',
-        e => console.dir(e.target, e.srcElement)
-        // this.onClickHeart(e.target.parentElement)
-
-        // srcElement
-        // target
-      );
+      /** 즐겨찾기 추가, 해제 */
+      const likeBtn = document.querySelector('#like');
+      likeBtn.addEventListener('click', () => {
+        likeBtn.querySelector('.heart').classList.toggle('fav');
+        this.onClickHeart({ ...this.data.item, isFavorite: !isFavorite });
+      });
     } else {
       this.$imageInfo.style.visibility = 'hidden';
     }

@@ -308,22 +308,26 @@ body[theme=color] {
   font-size: 0.9em;
   margin: 1.8em 0.5em;
 }
-.image-info .info-wrapper .text-box strong {
+.image-info .info-wrapper .text-box #like {
   position: absolute;
   right: 0;
   margin: 2em 1em;
+  font-weight: bolder;
   border: 5px dashed transparent;
   border-radius: 8px;
   cursor: pointer;
 }
-.image-info .info-wrapper .text-box strong .heart {
+.image-info .info-wrapper .text-box #like .heart {
   color: #f36dab;
   font-size: 1.3em;
   padding: 0.2em 0.5em;
-  vertical-align: bottom;
-  transition: all 0.1s;
+  vertical-align: middle;
+  transition: color 0.1s;
 }
-.image-info .info-wrapper .text-box strong .heart:hover {
+.image-info .info-wrapper .text-box #like .heart.fav {
+  color: var(--point-color);
+}
+.image-info .info-wrapper .text-box #like .heart:hover {
   color: var(--point-color);
 }
 

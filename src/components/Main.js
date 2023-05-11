@@ -1,5 +1,6 @@
 class Main {
   data = [];
+  // favorite = new Set();
 
   constructor({ $target, tags }) {
     const $main = document.createElement('main');
@@ -11,8 +12,7 @@ class Main {
       onSearch: tagName => {
         this.loadingShimmer.show();
         api.fetchJisuns().then(res => {
-          this.data = res.filter(i => i.tag.includes(tagName));
-          this.setState(this.data);
+          this.setState(res.filter(i => i.tag.includes(tagName)));
           this.loadingShimmer.hide();
         });
       },
@@ -22,9 +22,8 @@ class Main {
       $target: this.searchInput,
       onClickFav: () => {
         this.loadingShimmer.show();
-        api.fetchFavorites().then(res => {
-          this.data = res;
-          this.setState(this.data);
+        api.fetchJisuns().then(res => {
+          this.setState(res.filter(i => i.isFavorite));
           this.loadingShimmer.hide();
         });
       },
@@ -49,8 +48,13 @@ class Main {
         image: null,
         visible: false,
       },
-      onClickHeart: item => {
-        this.favorites.setState(item);
+      onClickHeart: data => {
+        api.updateFavorites(data).then(item => {
+          this.imageInfo.setState({
+            item,
+            visible: true,
+          });
+        });
       },
     });
 
