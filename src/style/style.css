@@ -248,6 +248,7 @@ body[theme=color] {
   border-radius: 8px;
   background-color: var(--sub-color);
   cursor: pointer;
+  position: relative;
   transition: filter 0.25s;
 }
 .search-result ul .result-item img {
@@ -258,6 +259,17 @@ body[theme=color] {
 }
 .search-result ul .result-item:hover, .search-result ul .result-item:focus {
   filter: drop-shadow(0 0 10px var(--point-color));
+}
+.search-result ul .result-item .preview {
+  opacity: 0;
+  position: absolute;
+  bottom: 0.6em;
+  right: 0.3em;
+  transition: opacity 0.2s ease;
+  font-size: 1.8em;
+}
+.search-result ul .result-item:hover .preview {
+  opacity: 1;
 }
 .search-result .empty {
   line-height: 2em;
@@ -332,17 +344,18 @@ body[theme=color] {
   border-radius: 8px;
   cursor: pointer;
 }
-.image-info .info-wrapper .text-box #like .heart {
+
+.heart {
   color: #f36dab;
   font-size: 1.3em;
   padding: 0.2em 0.5em;
   vertical-align: middle;
   transition: color 0.1s;
 }
-.image-info .info-wrapper .text-box #like .heart.fav {
+.heart.fav {
   color: var(--point-color);
 }
-.image-info .info-wrapper .text-box #like .heart:hover {
+.heart:hover {
   color: var(--point-color);
 }
 

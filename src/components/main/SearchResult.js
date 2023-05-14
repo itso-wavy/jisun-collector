@@ -35,8 +35,11 @@ class SearchResult {
       this.$resultList.innerHTML = this.data
         .map(
           item => `<li class="result-item">
-      <img src=${item.url} alt='${item.tag} jisun'>
-    </li>`
+                    <img src=${item.url} alt='${item.tag} jisun'>
+                    <div class="preview"><span class="heart ${
+                      item.isFavorite ? 'fav' : ''
+                    }">❤︎</span></div>
+                  </li>`
         )
         .join('');
 

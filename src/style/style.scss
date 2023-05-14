@@ -283,6 +283,7 @@ body {
       border-radius: 8px;
       background-color: var(--sub-color);
       cursor: pointer;
+      position: relative;
       transition: filter 0.25s;
 
       img {
@@ -296,6 +297,18 @@ body {
         filter: drop-shadow(0 0 10px var(--point-color));
       }
 
+      .preview {
+        opacity: 0;
+        position: absolute;
+        bottom: .6em;
+        right: .3em;
+        transition: opacity .2s ease;
+        font-size: 1.8em;
+      }
+
+      &:hover .preview {
+        opacity: 1;
+      }
     }
   }
 
@@ -375,24 +388,24 @@ body {
         border: 5px dashed transparent;
         border-radius: 8px;
         cursor: pointer;
-
-        .heart {
-          color: #f36dab;
-          font-size: 1.3em;
-          padding: .2em .5em;
-          vertical-align: middle;
-          transition: color 0.1s;
-
-          &.fav {
-            color: var(--point-color);
-          }
-
-          &:hover {
-            color: var(--point-color);
-          }
-        }
       }
     }
+  }
+}
+
+.heart {
+  color: #f36dab;
+  font-size: 1.3em;
+  padding: .2em .5em;
+  vertical-align: middle;
+  transition: color 0.1s;
+
+  &.fav {
+    color: var(--point-color);
+  }
+
+  &:hover {
+    color: var(--point-color);
   }
 }
 

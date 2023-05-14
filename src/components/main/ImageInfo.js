@@ -39,7 +39,6 @@ class ImageInfo {
       </div>
       `;
 
-      // this.$imageInfo.style.visibility = 'visible';
       this.$imageInfo.classList.add('show');
 
       /** 모달 닫기 이벤트 */
@@ -63,7 +62,6 @@ class ImageInfo {
         this.onClickHeart({ ...this.data.item, isFavorite: !isFavorite });
       });
     } else {
-      // this.$imageInfo.style.visibility = 'hidden';
       this.$imageInfo.classList.remove('show');
     }
   }
