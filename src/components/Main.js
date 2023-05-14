@@ -1,3 +1,10 @@
+import SearchInput from './main/SearchInput';
+import Favorites from './main/Favorites';
+import LoadingShimmer from './main/LoadingShimmer';
+import SearchResult from './main/SearchResult';
+import ImageInfo from './main/ImageInfo';
+import api from '../api/api';
+
 class Main {
   data = [];
 
@@ -65,3 +72,5 @@ class Main {
     this.searchResult.setState(nextData);
   }
 }
+
+export default Main;

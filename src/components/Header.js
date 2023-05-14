@@ -1,3 +1,5 @@
+import StyleTheme from './header/StyleTheme';
+
 class Header {
   constructor({ $target, themes }) {
     const $header = document.createElement('header');
@@ -12,3 +14,5 @@ class Header {
     $target.append($header);
   }
 }
+
+export default Header;

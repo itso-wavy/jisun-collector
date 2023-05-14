@@ -1,4 +1,6 @@
-console.log('app is running!');
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
 
 class App {
   $target = null;
@@ -13,3 +15,5 @@ class App {
     this.footer = new Footer({ $target });
   }
 }
+
+export default App;

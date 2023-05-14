@@ -1,3 +1,5 @@
+import Empty from './Empty';
+
 class SearchResult {
   data = [];
   onClickItem = null;
@@ -53,3 +55,5 @@ class SearchResult {
     }
   }
 }
+
+export default SearchResult;

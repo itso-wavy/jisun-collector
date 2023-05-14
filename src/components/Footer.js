@@ -13,3 +13,5 @@ class Footer {
     this.$footer.innerHTML = `so cute Prof.jisun<img class="icon" src="./favicon.png" alt="icon"><br> made by <a href="https://github.com/itso-wavy">wavy</a>`;
   }
 }
+
+export default Footer;

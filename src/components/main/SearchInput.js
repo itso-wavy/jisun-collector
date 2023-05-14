@@ -33,3 +33,5 @@ class SearchInput {
     this.$searchInput.append($tagList);
   }
 }
+
+export default SearchInput;

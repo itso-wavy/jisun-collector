@@ -68,3 +68,5 @@ class StyleTheme {
       this.$themeList.classList.add('hide');
   }
 }
+
+export default StyleTheme;

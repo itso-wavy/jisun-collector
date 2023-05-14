@@ -48,3 +48,5 @@ class LoadingShimmer {
     }
   }
 }
+
+export default LoadingShimmer;

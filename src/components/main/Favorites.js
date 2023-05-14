@@ -11,3 +11,5 @@ class Favorites {
     $target.$searchInput.append($favorites);
   }
 }
+
+export default Favorites;
