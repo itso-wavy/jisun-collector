@@ -319,6 +319,14 @@ body {
   place-items: center;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s linear;
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
 
   .info-wrapper {
     width: 600px;

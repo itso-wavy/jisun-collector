@@ -278,6 +278,13 @@ body[theme=color] {
   place-items: center;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+.image-info.show {
+  visibility: visible;
+  opacity: 1;
 }
 .image-info .info-wrapper {
   width: 600px;
