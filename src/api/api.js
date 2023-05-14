@@ -1,4 +1,4 @@
-const API_ENDPOINT = `http://localhost:5000`;
+const API_ENDPOINT = `https://rapid-melodious-text.glitch.me`;
 
 const request = async (url, opts) => {
   try {
