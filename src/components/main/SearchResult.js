@@ -1,6 +1,7 @@
 class SearchResult {
   data = [];
   onClickItem = null;
+  // isEmpty = null;
 
   constructor({ $main, initialData, onClickItem }) {
     const $searchResult = document.createElement('section');
@@ -10,11 +11,14 @@ class SearchResult {
     $readerTitle.className = 'sr-only';
     $searchResult.className = 'search-result';
 
+    this.$readerTitle = $readerTitle;
     this.$resultList = $resultList;
-    $searchResult.append($readerTitle);
+    $searchResult.append(this.$readerTitle);
+    const $empty = new Empty($searchResult);
     $searchResult.append(this.$resultList);
     $main.append($searchResult);
 
+    this.$empty = $empty;
     this.data = initialData;
     this.onClickItem = onClickItem;
     this.render();
@@ -22,22 +26,27 @@ class SearchResult {
 
   setState(nextData) {
     this.data = nextData;
+    this.$empty.show(!nextData.length ? true : false);
     this.render();
   }
 
   render() {
-    this.$resultList.innerHTML = this.data
-      .map(
-        item => `<li class="result-item">
+    if (this.data.length) {
+      this.$resultList.innerHTML = this.data
+        .map(
+          item => `<li class="result-item">
       <img src=${item.url} alt='${item.tag} jisun'>
     </li>`
-      )
-      .join('');
+        )
+        .join('');
 
-    this.$resultList.querySelectorAll('.result-item').forEach((item, index) =>
-      item.addEventListener('click', () => {
-        this.onClickItem(this.data[index]);
-      })
-    );
+      this.$resultList.querySelectorAll('.result-item').forEach((item, index) =>
+        item.addEventListener('click', () => {
+          this.onClickItem(this.data[index]);
+        })
+      );
+    } else {
+      this.$resultList.innerHTML = this.data;
+    }
   }
 }

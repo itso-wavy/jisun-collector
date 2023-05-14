@@ -1,6 +1,5 @@
 class Main {
   data = [];
-  // favorite = new Set();
 
   constructor({ $target, tags }) {
     const $main = document.createElement('main');

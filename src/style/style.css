@@ -170,7 +170,7 @@ body[theme=color] {
 .search-input .tag-list {
   display: flex;
   justify-content: center;
-  gap: 1em;
+  gap: 0.9em;
 }
 .search-input button {
   color: inherit;
@@ -258,6 +258,14 @@ body[theme=color] {
 }
 .search-result ul .result-item:hover, .search-result ul .result-item:focus {
   filter: drop-shadow(0 0 10px var(--point-color));
+}
+.search-result .empty {
+  line-height: 2em;
+  height: max(270px, 35vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-info {

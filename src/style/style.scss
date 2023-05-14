@@ -193,7 +193,7 @@ body {
   .tag-list {
     display: flex;
     justify-content: center;
-    gap: 1em;
+    gap: .9em;
   }
 
   button {
@@ -299,6 +299,14 @@ body {
     }
   }
 
+  .empty {
+    line-height: 2em;
+    height: max(270px, 35vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .image-info {
