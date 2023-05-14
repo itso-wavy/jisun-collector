@@ -3,7 +3,6 @@ import Empty from './Empty';
 class SearchResult {
   data = [];
   onClickItem = null;
-  // isEmpty = null;
 
   constructor({ $main, initialData, onClickItem }) {
     const $searchResult = document.createElement('section');
