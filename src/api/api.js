@@ -1,21 +1,25 @@
 const API_ENDPOINT = `http://localhost:5000`;
 
-const api = {
-  fetchJisuns: async () => {
-    const res = await fetch(`${API_ENDPOINT}/jisun`);
-    return await res.json();
-  },
+const request = async (url, opts) => {
+  try {
+    const res = await fetch(url, opts);
+    if (res.status === 200) return await res.json();
+    else throw { statusText: res.statusText };
+  } catch (err) {
+    console.error('에러 발생!', err);
+    return [];
+  }
+};
 
-  updateFavorites: async data => {
-    const res = await fetch(`${API_ENDPOINT}/jisun/${data.id}`, {
+const api = {
+  fetchJisuns: () => request(`${API_ENDPOINT}/jisun`),
+
+  updateFavorites: data =>
+    request(`${API_ENDPOINT}/jisun/${data.id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json; charset=UTF-8',
       },
       body: JSON.stringify(data),
-    });
-    return await res.json();
-  },
+    }),
 };
-
-// 에러처리

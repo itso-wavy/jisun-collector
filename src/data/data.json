@@ -85,7 +85,7 @@
         "serious"
       ],
       "likes": 15,
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "5615420",
@@ -125,7 +125,7 @@
         "cute"
       ],
       "likes": 7,
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "7715396",
