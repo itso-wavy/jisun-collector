@@ -1,3 +1,5 @@
+# 리드미 작성 중...😴
+
 <div align="center" >
 
   <img width="100" src="./public/favicon.png" alt="busungbusung-heart">
