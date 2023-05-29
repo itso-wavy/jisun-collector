@@ -1,6 +1,4 @@
-/* ===== FONT & VARIABLES & THEME ===== */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap');
-
+/* ===== VARIABLES & THEME ===== */
 body {
   --background-color: #ffffff;
   --font-color: #2c2c2a;
@@ -45,4 +43,11 @@ body {
   left: -9999px;
   font-size: 0;
   color: transparent;
+}
+
+/* ===== APP ===== */
+#App {
+  min-width: 370px;
+  max-width: 1900px;
+  min-height: 100vh;
 }

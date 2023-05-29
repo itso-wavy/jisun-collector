@@ -1,12 +1,8 @@
+@import 'font.scss';
 @import 'reset.scss';
 @import 'global.scss';
+
 @import 'header.scss';
 @import 'main.scss';
 @import 'footer.scss';
-
-/* ===== APP ===== */
-#App {
-  min-width: 370px;
-  max-width: 1900px;
-  min-height: 100vh;
-}
+// @import 'hiddenpage.scss';
