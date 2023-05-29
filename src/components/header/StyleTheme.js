@@ -33,18 +33,6 @@ class StyleTheme {
     $header.append($styleTheme);
 
     this.render();
-
-    window.addEventListener('resize', () => {
-      matchMedia('(width < 600px)').matches
-        ? (this.$themeList.classList.add('hide'),
-          (this.$label.disabled = false))
-        : (this.$themeList.classList.remove('hide'),
-          (this.$label.disabled = true));
-    });
-
-    this.$label.addEventListener('click', () => {
-      this.$themeList.classList.toggle('hide');
-    });
   }
 
   setState(themeName) {
@@ -66,6 +54,22 @@ class StyleTheme {
 
     matchMedia('(width < 600px)').matches &&
       this.$themeList.classList.add('hide');
+
+    window.addEventListener('load', () => this.controlBtn());
+
+    window.addEventListener('resize', () => this.controlBtn());
+
+    this.$label.addEventListener('click', () => {
+      this.$themeList.classList.toggle('hide');
+    });
+  }
+
+  controlBtn() {
+    console.log(this);
+    matchMedia('(width < 600px)').matches
+      ? (this.$themeList.classList.add('hide'), (this.$label.disabled = false))
+      : (this.$themeList.classList.remove('hide'),
+        (this.$label.disabled = true));
   }
 }
 
