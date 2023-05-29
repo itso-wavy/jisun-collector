@@ -4,6 +4,7 @@ import LoadingShimmer from './main/LoadingShimmer';
 import SearchResult from './main/SearchResult';
 import ImageInfo from './main/ImageInfo';
 import api from '../api/api';
+import { routeChange } from '../router/router';
 
 class Main {
   data = [];
@@ -16,6 +17,7 @@ class Main {
       $main,
       tags,
       onSearch: tagName => {
+        routeChange(`/${tagName}`);
         this.loadingShimmer.show();
         api.fetchJisuns().then(res => {
           this.setState(res.filter(i => i.tag.includes(tagName)));
@@ -27,6 +29,7 @@ class Main {
     this.favorites = new Favorites({
       $target: this.searchInput,
       onClickFav: () => {
+        routeChange(`/favorites`);
         this.loadingShimmer.show();
         api.fetchJisuns().then(res => {
           this.setState(res.filter(i => i.isFavorite));
