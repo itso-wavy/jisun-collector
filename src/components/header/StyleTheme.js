@@ -65,7 +65,6 @@ class StyleTheme {
   }
 
   controlBtn() {
-    console.log(this);
     matchMedia('(width < 600px)').matches
       ? (this.$themeList.classList.add('hide'), (this.$label.disabled = false))
       : (this.$themeList.classList.remove('hide'),
