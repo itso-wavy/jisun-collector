@@ -71,13 +71,6 @@ body[theme=color] {
   color: transparent;
 }
 
-/* ===== APP ===== */
-#App {
-  min-width: 370px;
-  max-width: 1900px;
-  min-height: 100vh;
-}
-
 /* === HEADER === */
 .header {
   background-color: var(--sub-color);
@@ -94,6 +87,12 @@ body[theme=color] {
   line-height: 0em;
   padding: 1.4em 2em 1.4em 2em;
   white-space: nowrap;
+}
+.header .router-btn {
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+  font-weight: inherit;
 }
 
 .style-theme {
@@ -373,4 +372,11 @@ body[theme=color] {
 }
 .footer a {
   color: #646cff;
+}
+
+/* ===== APP ===== */
+#App {
+  min-width: 370px;
+  max-width: 1900px;
+  min-height: 100vh;
 }

@@ -1,0 +1,17 @@
+/* === FOOTER === */
+.footer {
+  text-align: center;
+  font-size: .8rem;
+  border-top: 3px dashed var(--sub-color2);
+  padding: 2em 0 7em;
+
+  .icon {
+    width: 1.6rem;
+    vertical-align: middle;
+    margin-left: .6rem;
+  }
+
+  a {
+    color: #646cff;
+  }
+}
