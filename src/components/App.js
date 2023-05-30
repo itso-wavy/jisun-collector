@@ -12,13 +12,17 @@ class App {
     const themes = ['light', 'dark', 'color'];
     const tags = ['cute', 'pretty', 'serious', 'dull'];
 
-    init(this.render);
+    init(() => this.render($target, themes, tags));
     this.render($target, themes, tags);
-    window.addEventListener('popstate', this.render);
+    window.addEventListener('popstate', () =>
+      this.render($target, themes, tags)
+    );
   }
 
   render($target, themes, tags) {
     const { pathname } = location;
+
+    $target.innerHTML = '';
 
     if (pathname === '/') {
       this.header = new Header({ $target, themes });

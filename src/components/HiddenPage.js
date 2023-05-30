@@ -1,8 +1,6 @@
 import { routeChange } from '../router/router';
 
 class HiddenPage {
-  data = [];
-
   constructor({ $target }) {
     const $hiddenpage = document.createElement('div');
     $hiddenpage.className = 'hidden-page';
@@ -30,7 +28,9 @@ class HiddenPage {
     $target.append($hiddenpage);
 
     const $backBtn = document.getElementById('back-btn');
-    $backBtn.addEventListener('click', () => routeChange('/'));
+    $backBtn.addEventListener('click', () => {
+      routeChange('/');
+    });
 
     this.renderSky();
   }

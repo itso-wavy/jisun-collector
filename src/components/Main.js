@@ -17,7 +17,7 @@ class Main {
       $main,
       tags,
       onSearch: tagName => {
-        routeChange(`/${tagName}`);
+        // routeChange(`/list/${tagName}`);
         this.loadingShimmer.show();
         api.fetchJisuns().then(res => {
           this.setState(res.filter(i => i.tag.includes(tagName)));
@@ -29,7 +29,7 @@ class Main {
     this.favorites = new Favorites({
       $target: this.searchInput,
       onClickFav: () => {
-        routeChange(`/favorites`);
+        // routeChange(`/list/favorites`);
         this.loadingShimmer.show();
         api.fetchJisuns().then(res => {
           this.setState(res.filter(i => i.isFavorite));

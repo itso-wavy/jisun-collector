@@ -14,7 +14,6 @@ class Header {
     $header.append($h1);
 
     this.$styleTheme = new StyleTheme({ $header, themes });
-
     $target.append($header);
 
     $btnToRouter.addEventListener('click', () => routeChange('/hidden_page'));
