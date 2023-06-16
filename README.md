@@ -19,6 +19,8 @@ _휴일마다 영화를 5편씩 때려보던 딥한 취미러 W씨...<br>
 ![vite](https://img.shields.io/badge/vite-000000?style=for-the-badge&logo=vite)
 ![glitch](https://img.shields.io/badge/glitch-000000?style=for-the-badge&logo=glitch)
 
+**https://jisun-collector.vercel.app**
+
 </div>
 
 ## 1. 프로젝트 목표
